@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'G2' }
+    agent { label 'Java' }
     stages {
         stage ("SCM Chkout-1"){
             steps {
