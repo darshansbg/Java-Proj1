@@ -1,16 +1,18 @@
 pipeline {
-    agent { label 'Java' }
+    agent { label 'G2' }
+    triggers {
+        pollSCM 'H/3 * * * *'
+    }
     stages {
         stage ("SCM Chkout-1"){
             steps {
-                git 'https://github.com/Vishwanathms/Java-Proj1'
+                git branch: 'B1', url: 'https://github.com/Vishwanathms/Java-Proj1'
             }
         }
-        stage ("Java execute"){
+        stage ("compile java") {
             steps {
-                sh 'javac *.java'
-                sh 'java Simple'
-                sh 'ls -l'
+                sh "javac Samplecode.java"
+                sh "java Simple"
             }
         }
     }
